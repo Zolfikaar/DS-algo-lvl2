@@ -2,37 +2,59 @@
 #include <cstdlib>
 using namespace std;
 
-int ReadArrayLength()
+int ReadPositiveNumber(string Message)
 {
-  cout << "Please Enter A Positive Number For Array Length" << endl;
-
-  int length = 0;
-
-  cin >> length;
-
-  return length;
+  int Number = 0;
+  do
+  {
+    cout << Message << endl;
+    cin >> Number;
+  } while (Number <= 0);
+  return Number;
 }
 
-void ArrayElements(int length)
+void ReadArray(int arr[100], int &arrLength)
 {
-  int ElementsArray[length] = {};
-
-  for (int i = 1; i <= length; i++)
+  cout << "\nEnter number of elements:\n";
+  cin >> arrLength;
+  cout << "\nEnter array elements: \n";
+  for (int i = 0; i < arrLength; i++)
   {
-    int element = 0;
-    cin >> element;
-    cout << "Element [" << i << "]: " << element;
-    ElementsArray[i - 1] = element;
+    cout << "Element [" << i + 1 << "] : ";
+    cin >> arr[i];
   }
+  cout << endl;
+}
 
-  cout << endl
-       << "Original Array: " << ElementsArray << endl;
-  // return ElementsArray;
+void PrintArray(int arr[100], int arrLength)
+{
+  for (int i = 0; i < arrLength; i++)
+    cout << arr[i] << " ";
+  cout << "\n";
+}
+
+int TimesRepeated(int Number, int arr[100], int arrLength)
+{
+  int count = 0;
+  for (int i = 0; i <= arrLength - 1; i++)
+  {
+    if (Number == arr[i])
+    {
+      count++;
+    }
+  }
+  return count;
 }
 
 int main()
 {
-  ArrayElements(ReadArrayLength());
-
+  int arr[100], arrLength, NumberToCheck;
+  ReadArray(arr, arrLength);
+  NumberToCheck = ReadPositiveNumber("Enter the number you want to check: ");
+  cout << "\nOriginal array: ";
+  PrintArray(arr, arrLength);
+  cout << "\nNumber " << NumberToCheck;
+  cout << " is repeated ";
+  cout << TimesRepeated(NumberToCheck, arr, arrLength) << "time(s)\n";
   return 0;
 }
