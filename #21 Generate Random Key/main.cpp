@@ -44,46 +44,24 @@ char GetRandomCharacter(enCharType charType)
   return charType;
 }
 
+string GenerateWord(enCharType CharType, short Length)
+{
+  string Word;
+  for (int i = 1; i <= Length; i++)
+  {
+    Word = Word + GetRandomCharacter(CharType);
+  }
+  return Word;
+}
+
 string GenerateRandomKey()
 {
   string key = "";
 
-  while (key.length() != 4)
-  {
-    key += GetRandomCharacter(enCharType::capital_letter);
-  }
-
-  if (key.length() >= 4)
-  {
-    key += "-";
-  }
-
-  while (key.length() != 9)
-  {
-    key += GetRandomCharacter(enCharType::capital_letter);
-  }
-
-  if (key.length() >= 9)
-  {
-    key += "-";
-  }
-
-  while (key.length() != 14)
-  {
-    key += GetRandomCharacter(enCharType::capital_letter);
-  }
-
-  if (key.length() >= 14)
-  {
-    key += "-";
-  }
-
-  while (key.length() != 19)
-  {
-    key += GetRandomCharacter(enCharType::capital_letter);
-    break;
-  }
-
+  key = GenerateWord(enCharType::capital_letter, 4) + "-";
+  key = key + GenerateWord(enCharType::capital_letter, 4) + "-";
+  key = key + GenerateWord(enCharType::capital_letter, 4) + "-";
+  key = key + GenerateWord(enCharType::capital_letter, 4);
   return key;
 }
 
