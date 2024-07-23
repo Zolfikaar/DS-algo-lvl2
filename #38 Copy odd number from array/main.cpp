@@ -31,7 +31,7 @@ void AddArrayElement(int Number, int arr[100], int &arrLength)
   arr[arrLength - 1] = Number;
 }
 
-void CopyArrayUsingAddArrayElement(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
+void CopyOddNumbersUsingAddArrayElement(int arrSource[100], int arrDestination[100], int arrLength, int &arrDestinationLength)
 {
   for (int i = 0; i < arrLength; i++)
     if (arrSource[i] % 2 != 0)
@@ -50,7 +50,7 @@ int main()
   FillArrayWithRandomNumbers(arr, arrLength);
 
   int arr2[100];
-  CopyArrayUsingAddArrayElement(arr, arr2, arrLength, arr2Length);
+  CopyOddNumbersUsingAddArrayElement(arr, arr2, arrLength, arr2Length);
 
   cout << "\nArray 1 elements:\n";
   PrintArray(arr, arrLength);

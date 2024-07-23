@@ -5,6 +5,7 @@ void PeintWord()
 {
   string word = "";
   // ASCII value for A = 65, C = 67, Z = 90
+  // ASCII value for a = 91, z = 127
   // the time complexity of generating all possible words from "AAA" to "ZZZ" will be O(26^3), which is O(17576).
 
   for (int i = 65; i <= 67; i++)
